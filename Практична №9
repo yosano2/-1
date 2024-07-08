@@ -1,0 +1,23 @@
+function minSteps(x, y) {
+    let steps = 0;
+    let distance = y - x;
+    let current_step_length = 0;
+
+    while (distance > 0) {
+        steps++;
+        if (distance >= 2 * (current_step_length + 1)) {
+            current_step_length++;
+        } else if (distance > current_step_length) {
+        } else {
+            current_step_length--;
+        }
+        distance -= current_step_length;
+    }
+
+    return steps;
+}
+
+console.log(minSteps(45, 48));
+console.log(minSteps(45, 49));
+console.log(minSteps(45, 50));
+console.log(minSteps(45, 51));
