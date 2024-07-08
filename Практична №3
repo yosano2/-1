@@ -1,0 +1,22 @@
+function countValidNumbers(r) {
+    const dp = Array.from({ length: r + 1 }, () => 
+               Array.from({ length: 2 }, () => 
+               Array(3).fill(0)));
+
+    dp[1][0][1] = 1;
+    dp[1][1][1] = 1;
+
+    for (let i = 2; i <= r; i++) {
+        dp[i][0][1] = dp[i - 1][1][1] + dp[i - 1][1][2]; // Can follow a single 9 or two 9s
+        dp[i][0][2] = dp[i - 1][0][1]; // Can follow a single 5
+
+        dp[i][1][1] = dp[i - 1][0][1] + dp[i - 1][0][2]; // Can follow a single 5 or two 5s
+        dp[i][1][2] = dp[i - 1][1][1]; // Can follow a single 9
+    }
+
+    const result = dp[r][0][1] + dp[r][0][2] + dp[r][1][1] + dp[r][1][2];
+    return result;
+}
+
+const r = 5;
+console.log(countValidNumbers(r));
