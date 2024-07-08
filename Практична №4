@@ -1,0 +1,19 @@
+function countEqualDivisors(n) {
+    let count = 0;
+
+    for (let m = 1; m <= n; m++) {
+        if (n % m === 0) {
+            let quotient = Math.floor(n / m);
+            let remainder = n % m;
+
+            if (quotient === remainder) {
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
+
+const n = 20;
+console.log(`Кількість рівних дільників числа ${n}: ${countEqualDivisors(n)}`);
