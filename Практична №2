@@ -25,4 +25,4 @@ if (numbers.length !== p) {
 } else {
     const result = lcmOfArray(numbers);
     console.log(`Найменше спільне кратне: ${result}`);
-}
+
