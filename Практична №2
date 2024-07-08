@@ -1,0 +1,28 @@
+function gcd(a, b) {
+    while (b !== 0) {
+        let temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+function lcm(a, b) {
+    return (a * b) / gcd(a, b);
+}
+
+function lcmOfArray(arr) {
+    return arr.reduce((acc, curr) => lcm(acc, curr));
+}
+
+const input = "3\n2 9 3";
+const lines = input.split('\n');
+const p = parseInt(lines[0]);
+const numbers = lines[1].split(' ').map(Number);
+
+if (numbers.length !== p) {
+    console.error("Невірна кількість чисел у другому рядку.");
+} else {
+    const result = lcmOfArray(numbers);
+    console.log(`Найменше спільне кратне: ${result}`);
+}
