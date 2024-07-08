@@ -1,0 +1,9 @@
+function calculateVectorLength(x1, y1, x2, y2) {
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    return distance.toFixed(6);
+}
+
+const x1 = 1, y1 = 1, x2 = 2, y2 = 2;
+console.log(calculateVectorLength(x1, y1, x2, y2)); // Output: 1.414214
